@@ -1,3 +1,5 @@
+import LeftSidebar from "@/components/homepage/news/LeftSidebar"
+import RightSidebar from "@/components/homepage/news/RightSidebar"
 
 async function getCategories() {
 
@@ -18,14 +20,7 @@ export default async function Home() {
     <div className="container mx-auto grid grid-cols-12 gap-5 mt-10 font-semibold">
 
       <div className="col-span-3 text-center border border-gray-200">
-        <h1 className="text-2xl">All Categories</h1>
-        {
-          categories.news_category.map((category) => (
-            <ul key={category.category_id}>
-              <li className="text-gray-700 ">{category.category_name}</li>
-            </ul>
-          ))
-        }
+        <LeftSidebar categories={categories} activeId={null}/>
       </div>
 
       <div className="col-span-6 text-center border border-gray-200">
@@ -33,7 +28,7 @@ export default async function Home() {
       </div>
 
       <div className="col-span-3 text-center border border-gray-200">
-        <h1  className="text-2xl">Social Icons</h1>
+        <RightSidebar/>
       </div>
     </div>
   );
